@@ -8,8 +8,8 @@ package logicLayer;
  *
  * @author aleja
  */
-public class ImgLogin extends ImgConstructor {
-    public ImgLogin() {
-        super("../assets/login.png");
+public class ImgMenu extends ImgConstructor{
+    public ImgMenu() {
+        super("../assets/menu.png");
     }
 }
