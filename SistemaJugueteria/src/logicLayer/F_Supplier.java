@@ -38,7 +38,7 @@ public class F_Supplier {
             ps.setString(1, "%" + busqueda + "%");
             ResultSet rs = ps.executeQuery();
 
-            String[] datos = new String[9];
+            String[] datos = new String[4];
             while (rs.next()) {
                 datos[0] = rs.getString("id"); // Convertimos el int a String para la tabla
                 datos[1] = rs.getString("company_name");
@@ -47,7 +47,7 @@ public class F_Supplier {
                 model.addRow(datos);
             }
         } catch (SQLException e) {
-            JOptionPane.showMessageDialog(null, "Error al listar proveedores: " + e.getMessage());
+            JOptionPane.showMessageDialog(null, "Error listing suppliers: " + e.getMessage());
         }
         return model;
     }
@@ -59,7 +59,6 @@ public class F_Supplier {
         try (Connection conn = DBConnection.connect();
              PreparedStatement ps = conn.prepareStatement(sql)) {
 
-            // Empezamos desde el índice 1
             ps.setString(1, supplier.getCompanyName());
             ps.setString(2, supplier.getPhoneNumber());
             ps.setString(3, supplier.getEmail());
@@ -68,7 +67,7 @@ public class F_Supplier {
             return rowsInserted > 0;
 
         } catch (SQLException e) {
-            JOptionPane.showMessageDialog(null, "Error al insertar proveedor: " + e.getMessage());
+            JOptionPane.showMessageDialog(null, "Error inserting supplier: " + e.getMessage());
             return false;
         }
     }
@@ -83,30 +82,30 @@ public class F_Supplier {
             ps.setString(1, supplier.getCompanyName());
             ps.setString(2, supplier.getPhoneNumber());
             ps.setString(3, supplier.getEmail());
-            ps.setInt(4, supplier.getId()); // Usamos setInt para el WHERE id = ?
+            ps.setInt(4, supplier.getId());
 
             int rowsUpdated = ps.executeUpdate();
             return rowsUpdated > 0;
 
         } catch (SQLException e) {
-            JOptionPane.showMessageDialog(null, "Error al actualizar proveedor: " + e.getMessage());
+            JOptionPane.showMessageDialog(null, "Error updating supplier: " + e.getMessage());
             return false;
         }
     }
 
-    public boolean delete(int id) { // Cambiado de String a int
+    public boolean delete(int id) {
         String sql = "DELETE FROM suppliers WHERE id = ?";
 
         try (Connection conn = DBConnection.connect();
              PreparedStatement ps = conn.prepareStatement(sql)) {
 
-            ps.setInt(1, id); // Usamos setInt
+            ps.setInt(1, id);
 
             int rowsDeleted = ps.executeUpdate();
             return rowsDeleted > 0;
 
         } catch (SQLException e) {
-            JOptionPane.showMessageDialog(null, "Error al eliminar proveedor: " + e.getMessage());
+            JOptionPane.showMessageDialog(null, "Error deleting supplier: " + e.getMessage());
             return false;
         }
     }
@@ -127,7 +126,7 @@ public class F_Supplier {
                 siguienteID = rs.getInt("NextID");
             }
         } catch (SQLException e) {
-            System.out.println("Error al obtener ID de proveedores: " + e.getMessage());
+            System.out.println("Error obtaining supplier IDs: " + e.getMessage());
         }
         return siguienteID;
     }

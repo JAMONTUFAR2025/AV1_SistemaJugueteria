@@ -3,17 +3,19 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/_UTH/2026-1/Programación%20Avanzada%20I/III%20PARCIAL/Proyecto%20Final%20CRUD/SistemaJugueteria/src/presentationLayer/DlgSale.java</file>
-            <file>file:/C:/_UTH/2026-1/Programación%20Avanzada%20I/III%20PARCIAL/Proyecto%20Final%20CRUD/SistemaJugueteria/src/presentationLayer/FrmInventoryList.java</file>
-            <file>file:/C:/_UTH/2026-1/Programación%20Avanzada%20I/III%20PARCIAL/Proyecto%20Final%20CRUD/SistemaJugueteria/src/presentationLayer/FrmMenu.java</file>
-            <file>file:/C:/_UTH/2026-1/Programación%20Avanzada%20I/III%20PARCIAL/Proyecto%20Final%20CRUD/SistemaJugueteria/src/logicLayer/F_SaleDetail.java</file>
-            <file>file:/C:/_UTH/2026-1/Programación%20Avanzada%20I/III%20PARCIAL/Proyecto%20Final%20CRUD/SistemaJugueteria/src/dataLayer/E_SaleDetail.java</file>
+            <file>file:/C:/_UTH/2026-1/Programación%20Avanzada%20I/III%20PARCIAL/Proyecto%20Final%20CRUD/SistemaJugueteria/src/logicLayer/F_Supplier.java</file>
+            <file>file:/C:/_UTH/2026-1/Programación%20Avanzada%20I/III%20PARCIAL/Proyecto%20Final%20CRUD/SistemaJugueteria/src/logicLayer/F_Customer.java</file>
+            <file>file:/C:/_UTH/2026-1/Programación%20Avanzada%20I/III%20PARCIAL/Proyecto%20Final%20CRUD/SistemaJugueteria/src/logicLayer/DBConnection.java</file>
             <file>file:/C:/_UTH/2026-1/Programación%20Avanzada%20I/III%20PARCIAL/Proyecto%20Final%20CRUD/SistemaJugueteria/src/logicLayer/F_Sale.java</file>
-            <file>file:/C:/_UTH/2026-1/Programación%20Avanzada%20I/III%20PARCIAL/Proyecto%20Final%20CRUD/SistemaJugueteria/src/dataLayer/E_Sale.java</file>
             <file>file:/C:/_UTH/2026-1/Programación%20Avanzada%20I/III%20PARCIAL/Proyecto%20Final%20CRUD/SistemaJugueteria/src/logicLayer/F_Toy.java</file>
             <file>file:/C:/_UTH/2026-1/Programación%20Avanzada%20I/III%20PARCIAL/Proyecto%20Final%20CRUD/SistemaJugueteria/src/presentationLayer/DlgToy.java</file>
-            <file>file:/C:/_UTH/2026-1/Programación%20Avanzada%20I/III%20PARCIAL/Proyecto%20Final%20CRUD/SistemaJugueteria/src/presentationLayer/FrmLogin.java</file>
-            <file>file:/C:/_UTH/2026-1/Programación%20Avanzada%20I/III%20PARCIAL/Proyecto%20Final%20CRUD/SistemaJugueteria/src/logicLayer/DBConnection.java</file>
+            <file>file:/C:/_UTH/2026-1/Programación%20Avanzada%20I/III%20PARCIAL/Proyecto%20Final%20CRUD/SistemaJugueteria/src/presentationLayer/DlgUser.java</file>
+            <file>file:/C:/_UTH/2026-1/Programación%20Avanzada%20I/III%20PARCIAL/Proyecto%20Final%20CRUD/SistemaJugueteria/src/presentationLayer/DlgSupplier.java</file>
+            <file>file:/C:/_UTH/2026-1/Programación%20Avanzada%20I/III%20PARCIAL/Proyecto%20Final%20CRUD/SistemaJugueteria/src/presentationLayer/DlgSale.java</file>
+            <file>file:/C:/_UTH/2026-1/Programación%20Avanzada%20I/III%20PARCIAL/Proyecto%20Final%20CRUD/SistemaJugueteria/src/presentationLayer/DlgCustomer.java</file>
+            <file>file:/C:/_UTH/2026-1/Programación%20Avanzada%20I/III%20PARCIAL/Proyecto%20Final%20CRUD/SistemaJugueteria/src/logicLayer/F_User.java</file>
+            <file>file:/C:/_UTH/2026-1/Programación%20Avanzada%20I/III%20PARCIAL/Proyecto%20Final%20CRUD/SistemaJugueteria/src/logicLayer/F_SaleDetail.java</file>
+            <file>file:/C:/_UTH/2026-1/Programación%20Avanzada%20I/III%20PARCIAL/Proyecto%20Final%20CRUD/SistemaJugueteria/src/logicLayer/I_SelectionListener.java</file>
         </group>
     </open-files>
 </project-private>

@@ -21,7 +21,7 @@ public class F_Toy {
         DefaultTableModel model = new DefaultTableModel() {
             @Override
             public boolean isCellEditable(int row, int column) {
-                return false; // Esto hace que TODAS las celdas sean de solo lectura
+                return false;
             }
         };
         model.addColumn("ID");
@@ -45,7 +45,7 @@ public class F_Toy {
 
             String[] datos = new String[9];
             while (rs.next()) {
-                datos[0] = rs.getString("id"); // Convertimos el int a String para la tabla
+                datos[0] = rs.getString("id");
                 datos[1] = rs.getString("description");
                 datos[2] = rs.getString("recommended_age") + "+";
                 datos[3] = rs.getString("category");
@@ -57,7 +57,7 @@ public class F_Toy {
                 model.addRow(datos);
             }
         } catch (SQLException e) {
-            JOptionPane.showMessageDialog(null, "Error al listar juguetes: " + e.getMessage());
+            JOptionPane.showMessageDialog(null, "Error listing toy: " + e.getMessage());
         }
         return model;
     }
@@ -82,7 +82,7 @@ public class F_Toy {
             }
 
         } catch (SQLException e) {
-            JOptionPane.showMessageDialog(null, "Error al obtener datos del juguete: " + e.getMessage());
+            JOptionPane.showMessageDialog(null, "Error getting toy data: " + e.getMessage());
         }
 
         return toy;
@@ -95,7 +95,6 @@ public class F_Toy {
         try (Connection conn = DBConnection.connect();
              PreparedStatement ps = conn.prepareStatement(sql)) {
 
-            // Empezamos desde el índice 1 con la descripción
             ps.setString(1, toy.getDescription());
             ps.setInt(2, toy.getRecommendedAge());
             ps.setString(3, toy.getCategory());
@@ -109,7 +108,7 @@ public class F_Toy {
             return rowsInserted > 0;
 
         } catch (SQLException e) {
-            JOptionPane.showMessageDialog(null, "Error al insertar juguete: " + e.getMessage());
+            JOptionPane.showMessageDialog(null, "Error inserting toy: " + e.getMessage());
             return false;
         }
     }
@@ -129,30 +128,30 @@ public class F_Toy {
             ps.setDouble(6, toy.getSalePrice());
             ps.setDouble(7, toy.getPurchasePrice());
             ps.setInt(8, toy.getStock());
-            ps.setInt(9, toy.getId()); // Usamos setInt para el WHERE id = ?
+            ps.setInt(9, toy.getId());
 
             int rowsUpdated = ps.executeUpdate();
             return rowsUpdated > 0;
 
         } catch (SQLException e) {
-            JOptionPane.showMessageDialog(null, "Error al actualizar juguete: " + e.getMessage());
+            JOptionPane.showMessageDialog(null, "Error updating toy: " + e.getMessage());
             return false;
         }
     }
 
-    public boolean delete(int id) { // Cambiado de String a int
+    public boolean delete(int id) {
         String sql = "DELETE FROM toys WHERE id = ?";
 
         try (Connection conn = DBConnection.connect();
              PreparedStatement ps = conn.prepareStatement(sql)) {
 
-            ps.setInt(1, id); // Usamos setInt
+            ps.setInt(1, id);
 
             int rowsDeleted = ps.executeUpdate();
             return rowsDeleted > 0;
 
         } catch (SQLException e) {
-            JOptionPane.showMessageDialog(null, "Error al eliminar juguete: " + e.getMessage());
+            JOptionPane.showMessageDialog(null, "Error deleting toy: " + e.getMessage());
             return false;
         }
     }
@@ -173,7 +172,7 @@ public class F_Toy {
                 siguienteID = rs.getInt("NextID");
             }
         } catch (SQLException e) {
-            System.out.println("Error al obtener ID de juguetes: " + e.getMessage());
+            System.out.println("Error obtaining toy ID: " + e.getMessage());
         }
         return siguienteID;
     }
@@ -185,17 +184,14 @@ public class F_Toy {
         try (Connection conn = DBConnection.connect();
              PreparedStatement ps = conn.prepareStatement(sql)) {
 
-            // 1. El primer '?' es la cantidad a restar
             ps.setInt(1, quantitySold); 
-
-            // 2. El segundo '?' es el ID del juguete que queremos afectar
             ps.setInt(2, toyId); 
 
             int rowsUpdated = ps.executeUpdate();
             return rowsUpdated > 0;
 
         } catch (SQLException e) {
-            JOptionPane.showMessageDialog(null, "Error al actualizar stock: " + e.getMessage());
+            JOptionPane.showMessageDialog(null, "Error updating stock: " + e.getMessage());
             return false;
         }
     }

@@ -19,7 +19,7 @@ public class F_User {
         DefaultTableModel model = new DefaultTableModel() {
             @Override
             public boolean isCellEditable(int row, int column) {
-                return false; // Esto hace que TODAS las celdas sean de solo lectura
+                return false;
             }
         };
         model.addColumn("ID");
@@ -48,7 +48,7 @@ public class F_User {
                 model.addRow(datos);
             }
         } catch (SQLException e) {
-            JOptionPane.showMessageDialog(null, "Error al listar: " + e.getMessage());
+            JOptionPane.showMessageDialog(null, "Error listing users: " + e.getMessage());
         }
         return model;
     }
@@ -69,7 +69,7 @@ public class F_User {
             return rowsInserted > 0;
 
         } catch (SQLException e) {
-            JOptionPane.showMessageDialog(null, "Error al insertar: " + e.getMessage());
+            JOptionPane.showMessageDialog(null, "Error inserting user: " + e.getMessage());
             return false;
         }
     }
@@ -91,7 +91,7 @@ public class F_User {
             return rowsUpdated > 0;
 
         } catch (SQLException e) {
-            JOptionPane.showMessageDialog(null, "Error al actualizar: " + e.getMessage());
+            JOptionPane.showMessageDialog(null, "Error updating user: " + e.getMessage());
             return false;
         }
     }
@@ -108,16 +108,13 @@ public class F_User {
             return rowsDeleted > 0;
 
         } catch (SQLException e) {
-            JOptionPane.showMessageDialog(null, "Error al eliminar: " + e.getMessage());
+            JOptionPane.showMessageDialog(null, "Error deleting user: " + e.getMessage());
             return false;
         }
     }
     
     public int getNextID() {
         int siguienteID = 1;
-        // Esta consulta verifica si la tabla tiene filas. 
-        // Si está vacía, devuelve el valor semilla actual.
-        // Si tiene datos, devuelve el último ID + el incremento.
         String sql = "SELECT " +
                      "CASE " +
                      "  WHEN NOT EXISTS (SELECT 1 FROM users) THEN CAST(IDENT_SEED('users') AS INT) " +
@@ -132,7 +129,7 @@ public class F_User {
                 siguienteID = rs.getInt("NextID");
             }
         } catch (java.sql.SQLException e) {
-            System.out.println("Error al obtener ID: " + e.getMessage());
+            System.out.println("Error obtaining user ID: " + e.getMessage());
         }
         return siguienteID;
     }
@@ -142,7 +139,7 @@ public class F_User {
         
         String sql = "SELECT id, first_name, last_name, username, password, role FROM users WHERE username = ? AND password = ?";
 
-        try (Connection cn = DBConnection.connect(); // Cambia esto por tu método real de conexión
+        try (Connection cn = DBConnection.connect();
              PreparedStatement ps = cn.prepareStatement(sql)) {
 
             ps.setString(1, user);
@@ -160,7 +157,7 @@ public class F_User {
                 userFound.setRole(rs.getString("role"));
             }
         } catch (SQLException e) {
-            System.out.println("Error al conectar a SQL Server: " + e.getMessage());
+            System.out.println("Error connecting SQL Server: " + e.getMessage());
         }
         return userFound;
     }

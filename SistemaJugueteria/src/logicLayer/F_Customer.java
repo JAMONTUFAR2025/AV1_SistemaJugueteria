@@ -18,11 +18,10 @@ public class F_Customer {
         DefaultTableModel model = new DefaultTableModel() {
             @Override
             public boolean isCellEditable(int row, int column) {
-                return false; // Esto hace que TODAS las celdas sean de solo lectura
+                return false;
             }
         };
         
-        // Table headers in English
         model.addColumn("ID");
         model.addColumn("First Name");
         model.addColumn("Last Name");
@@ -32,17 +31,14 @@ public class F_Customer {
         model.addColumn("Phone Number");
         model.addColumn("Address");
 
-        // SQL using English column names
         String sql = "SELECT id, first_name, last_name, age, gender, dni, phone_number, address "
-                   + "FROM customers WHERE first_name LIKE ? OR last_name LIKE ? OR dni LIKE ?";
+                   + "FROM customers WHERE  dni LIKE ?";
 
         try (Connection conn = DBConnection.connect();
              PreparedStatement ps = conn.prepareStatement(sql)) {
 
             String searchParam = "%" + search + "%";
             ps.setString(1, searchParam);
-            ps.setString(2, searchParam);
-            ps.setString(3, searchParam);
             
             ResultSet rs = ps.executeQuery();
 

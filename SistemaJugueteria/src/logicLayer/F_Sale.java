@@ -22,7 +22,7 @@ public class F_Sale {
         DefaultTableModel model = new DefaultTableModel() {
             @Override
             public boolean isCellEditable(int row, int column) {
-                return false; // Esto hace que TODAS las celdas sean de solo lectura
+                return false;
             }
         };
         
@@ -32,7 +32,6 @@ public class F_Sale {
         model.addColumn("User ID");
         model.addColumn("Customer ID");
 
-        // Buscamos por el número de factura
         String sql = "SELECT id, sale_date, number_of_bill, user_id, customer_id "
                    + "FROM sales WHERE number_of_bill LIKE ?";
 
@@ -52,12 +51,11 @@ public class F_Sale {
                 model.addRow(datos);
             }
         } catch (SQLException e) {
-            JOptionPane.showMessageDialog(null, "Error al listar ventas: " + e.getMessage());
+            JOptionPane.showMessageDialog(null, "Error listing sales: " + e.getMessage());
         }
         return model;
     }
 
-    // Retorna el ID generado en lugar de boolean
     public int insert(E_Sale sale) {
         int generatedId = -1;
         String sql = "INSERT INTO sales (sale_date, number_of_bill, user_id, customer_id) "
@@ -83,7 +81,7 @@ public class F_Sale {
             }
 
         } catch (SQLException e) {
-            JOptionPane.showMessageDialog(null, "Error al insertar venta: " + e.getMessage());
+            JOptionPane.showMessageDialog(null, "Error inserting sale: " + e.getMessage());
         }
         return generatedId;
     }
@@ -104,7 +102,7 @@ public class F_Sale {
             return rowsUpdated > 0;
 
         } catch (SQLException e) {
-            JOptionPane.showMessageDialog(null, "Error al actualizar venta: " + e.getMessage());
+            JOptionPane.showMessageDialog(null, "Error updating sale: " + e.getMessage());
             return false;
         }
     }
@@ -121,7 +119,7 @@ public class F_Sale {
             return rowsDeleted > 0;
 
         } catch (SQLException e) {
-            JOptionPane.showMessageDialog(null, "Error al eliminar venta: " + e.getMessage());
+            JOptionPane.showMessageDialog(null, "Error deleting sale: " + e.getMessage());
             return false;
         }
     }
@@ -142,7 +140,7 @@ public class F_Sale {
                 siguienteID = rs.getInt("NextID");
             }
         } catch (SQLException e) {
-            System.out.println("Error al obtener ID de ventas: " + e.getMessage());
+            System.out.println("Error obtaining sale ID: " + e.getMessage());
         }
         return siguienteID;
     }

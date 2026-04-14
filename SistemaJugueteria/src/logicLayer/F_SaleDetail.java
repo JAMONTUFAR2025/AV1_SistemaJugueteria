@@ -17,12 +17,11 @@ import javax.swing.table.DefaultTableModel;
  * @author aleja
  */
 public class F_SaleDetail {
-    // Cambiamos el parámetro a int saleId, ya que listaremos los detalles de una venta específica
     public DefaultTableModel listData(int saleId) {
         DefaultTableModel model = new DefaultTableModel() {
             @Override
             public boolean isCellEditable(int row, int column) {
-                return false; // Esto hace que TODAS las celdas sean de solo lectura
+                return false;
             }
         };
         model.addColumn("ID");
@@ -50,7 +49,7 @@ public class F_SaleDetail {
                 model.addRow(datos);
             }
         } catch (SQLException e) {
-            JOptionPane.showMessageDialog(null, "Error al listar detalles de venta: " + e.getMessage());
+            JOptionPane.showMessageDialog(null, "Error listening sale details: " + e.getMessage());
         }
         return model;
     }
@@ -71,7 +70,7 @@ public class F_SaleDetail {
             return rowsInserted > 0;
 
         } catch (SQLException e) {
-            JOptionPane.showMessageDialog(null, "Error al insertar detalle de venta: " + e.getMessage());
+            JOptionPane.showMessageDialog(null, "Error inserting sale detail: " + e.getMessage());
             return false;
         }
     }
@@ -92,7 +91,7 @@ public class F_SaleDetail {
             return rowsUpdated > 0;
 
         } catch (SQLException e) {
-            JOptionPane.showMessageDialog(null, "Error al actualizar detalle de venta: " + e.getMessage());
+            JOptionPane.showMessageDialog(null, "Error updating sale detail: " + e.getMessage());
             return false;
         }
     }
@@ -109,7 +108,7 @@ public class F_SaleDetail {
             return rowsDeleted > 0;
 
         } catch (SQLException e) {
-            JOptionPane.showMessageDialog(null, "Error al eliminar detalle de venta: " + e.getMessage());
+            JOptionPane.showMessageDialog(null, "Error deleting sale detail: " + e.getMessage());
             return false;
         }
     }
