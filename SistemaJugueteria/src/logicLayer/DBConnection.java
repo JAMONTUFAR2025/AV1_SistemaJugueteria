@@ -33,11 +33,11 @@ public class DBConnection
         try
         {
             conn = DriverManager.getConnection(url, user, password);
-            System.out.println("Conexion exitosa con sa");
+            System.out.println("Successful connection with sa");
         }
         catch (SQLException e)
         {
-            JOptionPane.showMessageDialog(null,"Error de conexion: " + e.getMessage());
+            JOptionPane.showMessageDialog(null,"Connection error: " + e.getMessage());
         }
 
         return conn;
